@@ -1,18 +1,14 @@
-// const keys = ['name', 'phone', 'age', 'address', 'guardian'];
-const keys = ['country', 'capital'];
+const keys = ['name', 'phone', 'age', 'address', 'guardian'];
+// const keys = ['country', 'capital'];
 
-const assignToKey = function () {
-  let index = 0;
-
-  return function (object, data) {
-    object[keys[index]] = data;
-    index++;
-    return object;
-  }
+const assignToKey = function (object, data, index) {
+  console.log(object, data, index);
+  object[keys[index]] = data;
+  return object;
 };
 
 const toObject = function (person) {
-  return person.reduce(assignToKey(), {})
+  return person.reduce(assignToKey, {})
 };
 
 const peopleDetails = [
